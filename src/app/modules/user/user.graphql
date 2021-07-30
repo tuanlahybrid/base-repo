@@ -1,0 +1,18 @@
+type User {
+  id: ID!
+  email: String!
+  password: String
+  name: String
+  phoneNumber: String
+  isVerified: Boolean
+}
+
+type UserResponse {
+  statusCode: Int
+  error: Error
+  data: User
+}
+
+type Query {
+  user(email: String!): UserResponse
+}
