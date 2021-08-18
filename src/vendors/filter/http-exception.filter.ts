@@ -21,7 +21,7 @@ export class HttpExceptionFilter implements GqlExceptionFilter {
       error: {
         errorCode: HttpStatus.BAD_REQUEST,
         message: exception.message,
-        details: [],
+        // details: [],
       },
     };
   }
@@ -31,9 +31,9 @@ export class HttpExceptionFilter implements GqlExceptionFilter {
       statusCode: exception.getStatus(),
       data: null,
       error: {
-        errorCode: exception.getStatus(),
+        errorCode: exception.getResponse()['code'],
         message: exception.message,
-        details: [],
+        // details: [],
       },
     };
   }

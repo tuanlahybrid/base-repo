@@ -5,7 +5,7 @@ export const COMMON = {
   },
   UNAUTHORIZED: {
     code: 'UNAUTHORIZED',
-    message: 'Unauthorizied',
+    message: 'Unauthorized',
   },
   UNAUTHENTICATED: {
     code: 'UNAUTHENTICATED',
@@ -33,7 +33,7 @@ export const COMMON = {
   },
   TOKEN_EXPIRED: {
     code: 'TOKEN_EXPIRED',
-    message: 'token expired',
+    message: 'Token expired',
   },
   REFRESH_TOKEN_EXPIRED: {
     code: 'REFRESH_TOKEN_EXPIRED',
@@ -41,7 +41,7 @@ export const COMMON = {
   },
   TOKEN_INVALID: {
     code: 'TOKEN_INVALID',
-    message: 'token invalid',
+    message: 'Token invalid',
   },
   REFRESH_TOKEN_INVALID: {
     code: 'REFRESH_TOKEN_INVALID',

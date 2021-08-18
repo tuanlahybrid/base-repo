@@ -1,6 +1,7 @@
-import { BadRequestException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, HttpException, HttpStatus } from '@nestjs/common';
 import { Args, Query, Resolver } from '@nestjs/graphql';
 import { UserResponse } from 'src/app/graphql/graphql.schema';
+import { ERROR_CODE } from 'src/common/error-code/error-code';
 import { BaseResolver } from 'src/vendors/base/base.resolver';
 import { UserService } from './user.service';
 
@@ -12,14 +13,15 @@ export class UserResolver extends BaseResolver {
 
   @Query('user')
   getUser(@Args('email') email: string): UserResponse {
-    throw new UnauthorizedException('sdfjaskdfkjasldfj');
+    // throw new HttpException(ERROR_CODE.BAD_REQUEST, HttpStatus.BAD_REQUEST);
+    // throw new BadRequestException(ERROR_CODE.BAD_REQUEST);
 
     return this.response({
-      id: 'sdfsdf',
-      email: 'jsldkfj',
-      password: 'String',
-      name: 'String',
-      phoneNumber: 'String',
+      id: 'ID-1',
+      email: 'test@gmail.com',
+      password: '*********',
+      name: 'Le Thi Thanh Huyen',
+      phoneNumber: '**********',
       isVerified: true,
     });
   }
