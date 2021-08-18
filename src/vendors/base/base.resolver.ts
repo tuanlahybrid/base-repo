@@ -20,8 +20,9 @@ export class BaseResolver {
     console.log(statusCode ? statusCode : this.statusCode);
     return {
       statusCode: statusCode ? statusCode : this.statusCode,
-      message: message ? message : this.message,
+      // message: message ? message : this.message,
       data: data,
+      error: null,
     };
   }
 }

@@ -7,10 +7,10 @@ import {
 } from '@nestjs/common';
 import { GqlExceptionFilter, GqlArgumentsHost } from '@nestjs/graphql';
 
-@Catch()
+@Catch(Error)
 export class HttpExceptionFilter implements GqlExceptionFilter {
   catch(exception: Error, host: ArgumentsHost) {
-    console.log('error: ', exception);
+    console.log('Error: ', exception);
     const gqlHost = GqlArgumentsHost.create(host);
     if (exception instanceof HttpException) {
       return this.httpExceptionHandler(exception);
@@ -25,14 +25,14 @@ export class HttpExceptionFilter implements GqlExceptionFilter {
       },
     };
   }
+
   httpExceptionHandler(exception: HttpException) {
-    const error: any = exception.message;
     return {
-      statusCode: HttpStatus.BAD_REQUEST,
+      statusCode: exception.getStatus(),
       data: null,
       error: {
         errorCode: exception.getStatus(),
-        message: error,
+        message: exception.message,
         details: [],
       },
     };
